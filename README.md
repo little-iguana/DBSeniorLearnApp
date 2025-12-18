@@ -12,6 +12,7 @@ Ensure the connection strings in the following (in src/DBSeniorLearnApp.UI/) are
 - appsettings.json
 - appsettings.Development.json
 - appsettings.Testing.json
+
 Access client side by entering `localhost:5118` into a browser.
 
 Use to start the application
