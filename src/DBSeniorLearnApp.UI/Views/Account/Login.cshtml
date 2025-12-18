@@ -1,0 +1,23 @@
+@model DBSeniorLearnApp.UI.Models.LoginMemberViewModel
+
+@{
+	ViewBag.Title = "Login to an account";
+}
+
+<section class="container">
+<form method="post">
+	<div class="row">
+	<label asp-for="EmailAddress" class="col-2 m-2"></label>
+	<input type="email" asp-for="EmailAddress" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="Password" class="col-2 m-2"></label>
+	<input type="password" asp-for="Password" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<input type="submit" value="Login" class="col-1"></input>
+	</div>
+</form>
+</section>

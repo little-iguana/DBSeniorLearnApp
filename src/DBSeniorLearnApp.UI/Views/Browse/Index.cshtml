@@ -1,0 +1,37 @@
+@using System.Linq
+@using DBSeniorLearnApp.DataAccess.Models
+
+@model DBSeniorLearnApp.UI.Models.ViewManyCoursesViewModel
+
+@{
+	ViewBag.Title = "Browse available courses";
+}
+
+<section class="container">
+	<ul class="list-group">
+	@{
+		foreach (Course course in Model.Courses)
+		{
+			if (course.Status != "Draft"){
+			<li class="list-group-item">
+				<h3 class="float-left">@course.Title</h3>
+				<p class="float-left">@course.Description</p>
+				<p class="float-left">@course.Status</p>
+				<p class="float-left">@course.StartTime - @course.EndTime</p>
+				
+				<button
+					onClick="location.href = '/Browse/Enrol?id=@course.Id'"
+					type="button"
+					class="btn btn-primary float-right"
+				>@if (course.CourseEnrolments.Where(m => m.MemberId == Model.MemberId).Where(c => c.CourseId == course.Id).Count() > 0)
+				{
+					<p>Unenrol</p>
+				} else {
+					<p>Enrol</p>
+				}</button>
+			</li>
+			}
+		}
+	}
+	</ul>
+</section>

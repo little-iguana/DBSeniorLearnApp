@@ -1,0 +1,31 @@
+@model DBSeniorLearnApp.UI.Models.ViewCourseViewModel
+
+@{
+	ViewBag.Title = @Model.Title + " with " + @Model.InstructorName;
+}
+
+<section class="container">
+<!-- Add error implementation-->
+	<div class="row">
+	<label class="col-2 m-2">@Model.Title</label>
+	</div>
+	<div class="row">
+	<label class="col-2 m-2">@Model.InstructorName</label>
+	</div>
+	<div class="row">
+	<label class="col-2 m-2">@Model.StartTime - @Model.EndTime</label>
+	</div>
+	<div class="row">
+	<label class="col-2 m-2">@Model.Description</label>
+	</div>
+	<div class="row">
+	<label class="col-2 m-2">Prerequisites: @Model.Prerequisites</label>
+	</div>
+    <label class="col-2 m-2">Status: @Model.Status</label>
+	
+	<form method="post">
+		<div class="row">
+		<input type="submit" value="Enrol" class="col-1"></input>
+		</div>
+	</form>
+</section>

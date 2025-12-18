@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+	
+	@if (User.IsInRole("Standard"))
+	{
+		<div>
+			<p>If you're a standard member, <a href="/Browse">browse courses here</a></p>
+		</div>
+	}
+	@if (User.IsInRole("Professional"))
+	{
+		<div>
+			<p>If you're a professional member, scheduling a class is available in the nav bar</p>
+		</div>
+	}
+	
+	@if (User.IsInRole("Admin"))
+	{
+		<div>
+			<p>You're an admin. The dashboard can be accessed via the navigation bar</p>
+		</div>
+	}
+</div>

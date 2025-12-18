@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+<head>
+    <link rel="stylesheet" href="~/lib/dropzone/dropzone.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
+                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <!--
+            <div class="form-floating mb-3" id="dropzone">
+                <div action="" class="dropzone" id="uploadbox">
+                    Drop files here or click to upload
+                </div>
+            </div>
+            -->
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+        <hr />
+        <h3>Change display picture</h3>
+        <form asp-controller="Account" asp-action="FileUpload" class="dropzone file-upload-form" id="displayPicture">
+			<!-- <button type="submit" class="upload-button">Upload</button> -->
+        </form>
+        <script src="~/lib/dropzone/dropzone.min.js"></script>
+        <script>
+            Dropzone.options.displayPicture = {
+                acceptedFiles: 'image/*',
+                maxFiles: 1
+            }
+        </script>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+}

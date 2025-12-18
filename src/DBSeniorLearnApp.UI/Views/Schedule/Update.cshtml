@@ -1,0 +1,56 @@
+@model DBSeniorLearnApp.UI.Models.UpdateCourseViewModel
+
+@{
+	ViewBag.Title = "Update a course";
+}
+
+<section class="container">
+<!-- Add error implementation-->
+<form method="post">
+	<div>
+	<p>Fill in the fields you wish to update</p>
+	</div>
+	
+	<!-- <div class="row"> -->
+	<!-- <label class="col-2 m-2">Enter your member number</label> -->
+	<!-- <input asp-for=Model.InstructorMemberNumber class="col-2 m-2"></input> -->
+	<!-- </div> -->
+	
+	<div class="row">
+	<label class="col-2 m-2">Title</label>
+	<input asp-for=@Model.Title class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label class="col-2 m-2">Start time</label>
+	<input asp-for=@Model.StartTime class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label class="col-2 m-2">End time</label>
+	<input asp-for=@Model.EndTime class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label class="col-2 m-2">Description</label>
+	<input asp-for=@Model.Description class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label class="col-2 m-2">Prerequisites</label>
+	<input asp-for=@Model.Prerequisites class="col-2 m-2"></input>
+	</div>
+	
+    <label class="col-2 m-2">Status</label>
+    <select asp-for=@Model.Status asp-items="Model.Statuses" class="col-2 m-2"></select>
+	
+	<div class="row">
+	<input type="submit" value="Register" class="col-1"></input>
+	</div>
+</form>
+</section>
+
+
+
+
+
