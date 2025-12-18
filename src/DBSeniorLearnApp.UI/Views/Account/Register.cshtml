@@ -1,0 +1,44 @@
+@model DBSeniorLearnApp.UI.Models.CreateMemberViewModel
+
+@{
+	ViewBag.Title = "Register a new account";
+}
+
+<section class="container">
+<!-- Add error implementation-->
+<form method="post">
+	<div class="row">
+	<label asp-for="Firstname" class="col-2 m-2"></label>
+	<input type="text" asp-for="Firstname" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="Lastname" class="col-2 m-2"></label>
+	<input type="text" asp-for="Lastname" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="PhoneNumber" class="col-2 m-2"></label>
+	<input type="phone" asp-for="PhoneNumber" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="EmailAddress" class="col-2 m-2"></label>
+	<input type="email" asp-for="EmailAddress" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="Password" class="col-2 m-2"></label>
+	<input type="password" asp-for="Password" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="ConfirmPassword" class="col-2 m-2"></label>
+	<input type="password" asp-for="ConfirmPassword" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<input type="submit" value="Register" class="col-1"></input>
+	</div>
+</form>
+</section>

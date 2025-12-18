@@ -1,0 +1,43 @@
+@using DBSeniorLearnApp.DataAccess.Models
+@using Microsoft.EntityFrameworkCore.Infrastructure.Internal
+
+@model DBSeniorLearnApp.UI.Models.MemberListViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class=text-center>
+    <h1>Admin Dashboard</h1>
+</div>
+
+<h2>Member List</h2>
+<table>
+    <thead>
+        <th>Username</th>
+        <th>Member No.</th>
+        <th>Member Type</th>
+        <th></th>
+    </thead>
+    @for(int i = 0; i < Model.Members.Count; i++)
+	{
+        <tr>
+            <td><a asp-controller="Dashboard" asp-action="UserView" asp-route-selectedMemberNumber="@Model.Members[i].MemberNumber">@Model.Members[i].EmailAddress</a></td>
+            <td>@Model.Members[i].MemberNumber</td>
+            @if (Model.MemberTypes[i] == "Admin"){
+                <td>Admin</td>
+            }
+            else if(Model.MemberTypes[i] == "Professional"){
+                <td>Professional</td>
+            }
+            else{
+                <td>Standard</td>
+            }
+        </tr>
+    }
+</table>
+
+<a asp-action="Statistics">View statistics here</a>
+
+
+

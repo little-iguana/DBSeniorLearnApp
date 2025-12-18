@@ -1,0 +1,29 @@
+@model DBSeniorLearnApp.UI.Models.CreateProfessionalMemberViewModel
+
+@{
+	ViewBag.Title = "Upgrade a standard member";
+}
+
+<section class="container">
+<!-- Add error implementation-->
+<form method="post">
+	<div class="row">
+	<label class="col-2 m-2">Standard member's member number</label>
+	<input asp-for=@Model.SmMemberNumber class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label class="col-2 m-2">Description / Instructor Bio</label>
+	<input asp-for=@Model.Description class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<input type="submit" value="Submit" class="col-1">Register</input>
+	</div>
+</form>
+</section>
+
+
+
+
+

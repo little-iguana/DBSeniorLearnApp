@@ -1,0 +1,34 @@
+@model DBSeniorLearnApp.UI.Models.RegisterPaymentViewModel
+
+@{
+	ViewBag.Title = "Register payment";
+}
+
+<section class="container">
+<!-- Add error implementation-->
+<form method="post">
+	<div class="row">
+	<label asp-for="CardName" class="col-2 m-2"></label>
+	<input type="text" asp-for="CardName" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="CardNumber" class="col-2 m-2"></label>
+	<input type="text" asp-for="CardNumber" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="CardCCV" class="col-2 m-2"></label>
+	<input type="text" asp-for="CardCCV" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<label asp-for="CardExpiry" class="col-2 m-2"></label>
+	<input type="text" asp-for="CardExpiry" class="col-2 m-2"></input>
+	</div>
+	
+	<div class="row">
+	<input type="submit" value="Submit" class="col-1"></input>
+	</div>
+</form>
+</section>

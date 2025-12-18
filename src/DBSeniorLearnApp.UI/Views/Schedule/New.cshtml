@@ -1,0 +1,77 @@
+@using DBSeniorLearnApp.Services;
+
+@model DBSeniorLearnApp.UI.Models.CreateCourseViewModel
+
+@{
+	ViewBag.Title = "Create a new course";
+}
+
+<section class="container">
+<form asp-controller="Schedule" asp-action="New" method="POST">
+	<div class="row">
+    <label class="col-2 m-2">Course Title</label>
+    <input asp-for=@Model.Title class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">Description</label>
+    <input asp-for=@Model.Description class="col-2 m-2" />
+	</div>
+	
+	<p>If the class is recurring, pick the time according to when the class should be, 
+and the date as the start recurring date.</p>
+	<div class="row">
+    <label class="col-2 m-2">Class date</label>
+    <input asp-for=@Model.CourseDate class="col-2 m-2" />
+	</div>
+	<div class="row">
+    <label class="col-2 m-2">Start time</label>
+    <input asp-for=@Model.StartTime class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">End time</label>
+    <input asp-for=@Model.EndTime class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">Prerequisites</label>
+    <input asp-for=@Model.Prerequisites class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">Status</label>
+    <select asp-for=@Model.Status asp-items="Model.Statuses" class="col-2 m-2"></select>
+	</div>
+	
+	<div class="row">
+	<label class="col-2 m-2">Is Recurring class</label>
+	<input asp-for=@Model.IsRecurring class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">Start recurring date</label>
+    <input asp-for=@Model.StartRecurring class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">End recurring date</label>
+    <input asp-for=@Model.EndRecurring class="col-2 m-2" />
+	</div>
+	
+	<div class="row">
+    <label class="col-2 m-2">Frequency</label>
+    <select asp-for=@Model.Frequency
+			asp-items="Html.GetEnumSelectList<CourseRecurrenceFrequency>()"
+			class="col-2 m-2"
+		>
+		<option>Select frequency</option>
+	</select>
+	</div>
+	
+	
+	<div class="row">
+    <button type="submit" class="col-2 m-2">Schedule Class</button>
+	</div>
+</form>
+</section>

@@ -1,0 +1,36 @@
+@using DBSeniorLearnApp.DataAccess.Models
+
+@model DBSeniorLearnApp.UI.Models.CourseDashboardViewModel
+
+@{
+	ViewBag.Title = "Dashboard";
+}
+
+<section class="container">
+	<ul class="list-group">
+	@{
+		foreach (Course course in Model.Courses)
+		{
+			<li class="list-group-item">
+				<h3 class="float-left">@course.Title</h3>
+				<p class="float-left">@course.Description</p>
+				<p class="float-left">@course.Status</p>
+				<p class="float-left">@course.StartTime - @course.EndTime</p>
+				
+				<button
+					onClick="location.href = '/Schedule/Update?id=@course.Id'"
+					type="button"
+					class="btn btn-primary float-right"
+				>Edit</button>
+			</li>
+		}
+	}
+	</ul>
+	
+	<div>
+		<button
+			onClick="location.href = '/Schedule/New'"
+			class="btn btn-primary"
+		>Schedule a new course</button>
+	</div>
+</section>

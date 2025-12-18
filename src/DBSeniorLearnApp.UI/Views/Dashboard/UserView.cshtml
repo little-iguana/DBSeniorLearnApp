@@ -1,0 +1,33 @@
+@model DBSeniorLearnApp.UI.Models.UpdateMemberAdminViewModel
+
+<h1>@Model.Member.EmailAddress</h1>
+
+<a asp-action="Admin" asp-controller="Dashboard">Return to member view</a>
+<table>
+    <tr>
+        <td>User Name</td>
+        <td>@Model.Member.EmailAddress</td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td>@Model.Member.Firstname</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>@Model.Member.Lastname</td>
+    </tr>
+    <tr>
+        <td>Member Number</td>
+        <td>@Model.Member.MemberNumber</td>
+    </tr>
+    <tr>
+        <td>Member Type</td>
+        <td>
+            <form asp-controller="Dashboard" asp-action="UserView" method="POST">
+            <select asp-for="MemberType" asp-items="Model.MemberTypes"></select>
+            <input asp-for="MemberNumber" type="hidden" value=@Model.Member.MemberNumber/> <!-- a little insecure but probably ok because it's only being seen by the admin.-->
+            <button type="submit">Save</button>
+            </form>
+        </td>
+    </tr>
+</table>
